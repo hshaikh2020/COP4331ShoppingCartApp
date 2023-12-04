@@ -1,0 +1,47 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'20'
+-sourcepath
+'C:/Users/shaik/OneDrive/Documents/NetBeansProjects/ShoppingCartApp/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/shaik/OneDrive/Documents/NetBeansProjects/ShoppingCartApp/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ShoppingCartApp 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'ShoppingCartApp 1.0-SNAPSHOT API'
+cop4331.gui
+cop4331.models
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\src\main\java = 1701669373780
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\allclasses-index.html = 1701706936817
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\allpackages-index.html = 1701706936820
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\copy.svg = 1701706936859
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\element-list = 1701706936664
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\help-doc.html = 1701706936843
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\index-all.html = 1701706936843
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\index.html = 1701706936801
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\member-search-index.js = 1701706936827
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\module-search-index.js = 1701706936822
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\overview-summary.html = 1701706936843
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\overview-tree.html = 1701706936798
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\package-search-index.js = 1701706936823
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\script.js = 1701706936859
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\search-page.js = 1701706936859
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\search.html = 1701706936843
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\search.js = 1701706936859
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\serialized-form.html = 1701706936732
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\stylesheet.css = 1701706936859
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\tag-search-index.js = 1701706936827
+C:\Users\shaik\OneDrive\Documents\NetBeansProjects\ShoppingCartApp\target\site\apidocs\type-search-index.js = 1701706936825
