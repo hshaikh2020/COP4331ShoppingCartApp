@@ -6,12 +6,18 @@ import javax.swing.*;
 import cop4331.models.Item;
 
 /**
- *
+ * The ItemDetailsView class represents a view for displaying details of an item in a graphical user interface.
+ * This class extends JFrame and follows the Singleton design pattern to maintain a single instance throughout the application.
  * @author S Hassan Shaikh
+ * @author Austin Vasquez
+ * @author Divyesh Mangapuram
+ * @author Jorge Martinez
  */
 public class ItemDetailsView extends JFrame {
-    private ItemDetailsView()
-    {
+    /**
+     * Private constructor to prevent external instantiation.
+     */
+    private ItemDetailsView() {
         super();
         setLayout(new BorderLayout());
         JPanel superPanel = new JPanel();
@@ -32,43 +38,46 @@ public class ItemDetailsView extends JFrame {
         valuePanel.setLayout(new BoxLayout(valuePanel, BoxLayout.LINE_AXIS));
         valuePanel.add(priceTag);
         JPanel spacerPanel = new JPanel();
-        spacerPanel.setSize(10,0);
+        spacerPanel.setSize(10, 0);
         valuePanel.add(spacerPanel);
         valuePanel.add(stockCount);
         superPanel.add(valuePanel);
         superPanel.add(specSheet);
         add(superPanel, BorderLayout.CENTER);
         JButton OkButton = new JButton("Done");
-        OkButton.addActionListener((ActionEvent e) -> {this.setVisible(false);});
-        add(OkButton,BorderLayout.PAGE_END);
+        OkButton.addActionListener((ActionEvent e) -> { this.setVisible(false); });
+        add(OkButton, BorderLayout.PAGE_END);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        OkButton.addKeyListener(new KeyListener(){
+        OkButton.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
 
             @Override
             public void keyPressed(KeyEvent theKey) {
-                if(theKey.getExtendedKeyCode()==KeyEvent.VK_ENTER)
-                {OkButton.doClick();}
+                if (theKey.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+                    OkButton.doClick();
+                }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {}
         });
     }
-    
-    public void ShowItem(Item item)
-    {
+
+    /**
+     * Displays the details of the given Item in the ItemDetailsView.
+     * @param item The Item object whose details are to be displayed.
+     */
+    public void ShowItem(Item item) {
         setTitle("Item Details");
         itemNameLabel.setText(item.GetName());
         itemDescriptionLabel.setText(item.GetDescription());
         sellerNameLabel.setText(item.GetSeller().GetName());
-        priceTag.setText("Price: "+String.valueOf(item.GetPrice())+"$");
-        stockCount.setText("Current Stock: "+String.valueOf(item.GetStock()));
+        priceTag.setText("Price: " + String.valueOf(item.GetPrice()) + "$");
+        stockCount.setText("Current Stock: " + String.valueOf(item.GetStock()));
         JPanel specSheetPanel = new JPanel();
         specSheetPanel.setLayout(new BoxLayout(specSheetPanel, BoxLayout.PAGE_AXIS));
-        for(int i=0;i<item.GetSpecSize();i++)
-        {
+        for (int i = 0; i < item.GetSpecSize(); i++) {
             JPanel specPanel = new JPanel();
             specPanel.setLayout(new BoxLayout(specPanel, BoxLayout.LINE_AXIS));
             String[] itemSpec = item.GetSpec(i);
@@ -79,11 +88,10 @@ public class ItemDetailsView extends JFrame {
             specPanel.add(specName);
             specPanel.add(spacerPanel);
             specPanel.add(specDesc);
-            if(i%2==1){
+            if (i % 2 == 1) {
                 specPanel.setBackground(Color.LIGHT_GRAY);
                 spacerPanel.setBackground(Color.LIGHT_GRAY);
-            }
-            else{
+            } else {
                 specPanel.setBackground(Color.WHITE);
                 spacerPanel.setBackground(Color.WHITE);
             }
@@ -96,17 +104,36 @@ public class ItemDetailsView extends JFrame {
         pack();
         setVisible(true);
     }
-    
-    public static ItemDetailsView GetInstance()
-    {
+
+    /**
+     * Retrieves the singleton instance of ItemDetailsView.
+     * @return The singleton instance of ItemDetailsView.
+     */
+    public static ItemDetailsView GetInstance() {
         return singletonItemDetails;
     }
-    
+
+    // Private fields
+
+    /** JLabel to display item name */
     private final JLabel itemNameLabel = new JLabel();
+
+    /** JLabel to display item description */
     private final JLabel itemDescriptionLabel = new JLabel();
+
+    /** JLabel to display seller name */
     private final JLabel sellerNameLabel = new JLabel();
+
+    /** JLabel to display item price */
     private final JLabel priceTag = new JLabel();
+
+    /** JLabel to display stock count */
     private final JLabel stockCount = new JLabel();
+
+    /** JScrollPane to contain item specifications */
     private final JScrollPane specSheet = new JScrollPane();
+
+    /** Singleton instance of ItemDetailsView */
     private final static ItemDetailsView singletonItemDetails = new ItemDetailsView();
 }
+

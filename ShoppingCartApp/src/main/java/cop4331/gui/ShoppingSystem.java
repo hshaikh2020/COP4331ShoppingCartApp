@@ -10,10 +10,23 @@ import javax.swing.*;
 import javax.swing.table.*;
 
 /**
- *
+ * The ShoppingSystem class manages the main functionality of the shopping application.
+ * It handles user interactions, data storage, and screen transitions.
  * @author S Hassan Shaikh
+ * @author Austin Vasquez
+ * @author Divyesh Mangapuram
+ * @author Jorge Martinez
  */
 public class ShoppingSystem {
+    /**
+     * Private default constructor for the ShoppingSystem singleton.
+     */
+    private ShoppingSystem(){}
+    
+    /**
+     * Starts the shopping application by setting up the main view, loading data from files,
+     * and displaying the login screen.
+     */
     public void StartApp()
     {
         GetDataFromFiles();
@@ -54,7 +67,9 @@ public class ShoppingSystem {
         mainView.add(container);
         OpenLoginScreen();
     }
-    
+    /**
+     * Loads user data from files when the application starts.
+     */
     private void GetDataFromFiles()
     {
         sellersList = new ArrayList<Seller>();
@@ -88,6 +103,9 @@ public class ShoppingSystem {
         catch(IOException | ClassNotFoundException e){}
     }
     
+    /**
+     * Resets the main view by removing its components.
+     */
     private void ResetMainView()
     {
         container.removeAll();
@@ -95,6 +113,9 @@ public class ShoppingSystem {
         container.repaint();
     }
     
+    /**
+     * Opens the login screen where users can log in to their accounts.
+     */
     public void OpenLoginScreen()
     {
         ResetMainView();
@@ -147,26 +168,44 @@ public class ShoppingSystem {
                 }
             }
         });
-        registerInstead.addActionListener((ActionEvent e)->{OpenRegisterScreen();});
-        KeyListener loginOnEnter = new KeyListener(){
-            @Override
-            public void keyTyped(KeyEvent e) {}
+        // Adding an ActionListener to registerInstead button
+registerInstead.addActionListener((ActionEvent e) -> {
+    // Calling the method to open the register screen
+    OpenRegisterScreen();
+});
 
-            @Override
-            public void keyPressed(KeyEvent theKey) {
-                if(theKey.getExtendedKeyCode()==KeyEvent.VK_ENTER)
-                {loginButton.doClick();}
-            }
+// Creating a KeyListener for login functionality
+KeyListener loginOnEnter = new KeyListener() {
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Not handling keyTyped event, leaving it empty
+    }
 
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        };
-        usernameTextField.addKeyListener(loginOnEnter);
-        passwordTextField.addKeyListener(loginOnEnter);
+    @Override
+    public void keyPressed(KeyEvent theKey) {
+        // Checking if the pressed key is the 'Enter' key
+        if (theKey.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+            // If 'Enter' is pressed, simulate a click on the loginButton
+            loginButton.doClick();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Not handling keyReleased event, leaving it empty
+    }
+};
+
+// Adding the loginOnEnter KeyListener to the username and password text fields
+usernameTextField.addKeyListener(loginOnEnter);
+passwordTextField.addKeyListener(loginOnEnter);
         //mainView.add(container);
         mainView.pack();
     }
     
+    /**
+     * Opens the registration screen where new users can create accounts.
+     */
     public void OpenRegisterScreen()
     {
         ResetMainView();
@@ -244,26 +283,48 @@ public class ShoppingSystem {
                 }
             }
         });
-        loginInstead.addActionListener((ActionEvent e)->{OpenLoginScreen();});
-        KeyListener registerOnEnter = new KeyListener(){
-            @Override
-            public void keyTyped(KeyEvent e) {}
+        // Adding an ActionListener to loginInstead button
+loginInstead.addActionListener((ActionEvent e) -> {
+    // Calling the method to open the login screen
+    OpenLoginScreen();
+});
 
-            @Override
-            public void keyPressed(KeyEvent theKey) {
-                if(theKey.getExtendedKeyCode()==KeyEvent.VK_ENTER)
-                {registerButton.doClick();}
-            }
+// Creating a KeyListener for registration functionality
+KeyListener registerOnEnter = new KeyListener() {
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Not handling keyTyped event, leaving it empty
+    }
 
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        };
-        usernameTextField.addKeyListener(registerOnEnter);
-        passwordTextField.addKeyListener(registerOnEnter);
-        nameTextField.addKeyListener(registerOnEnter);
-        mainView.pack();
+    @Override
+    public void keyPressed(KeyEvent theKey) {
+        // Checking if the pressed key is the 'Enter' key
+        if (theKey.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+            // If 'Enter' is pressed, simulate a click on the registerButton
+            registerButton.doClick();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Not handling keyReleased event, leaving it empty
+    }
+};
+
+// Adding the registerOnEnter KeyListener to the username, password, and name text fields
+usernameTextField.addKeyListener(registerOnEnter);
+passwordTextField.addKeyListener(registerOnEnter);
+nameTextField.addKeyListener(registerOnEnter);
+
+// Packing the mainView (assuming mainView is a Swing container/window)
+mainView.pack();
+
+
     }
     
+    /**
+     * Opens the settings screen where users can manage their account settings.
+     */
     public void OpenSettingsScreen()
     {
         ResetMainView();
@@ -390,26 +451,46 @@ public class ShoppingSystem {
                 }
             }
         });
-        KeyListener saveOnEnter = new KeyListener(){
-            @Override
-            public void keyTyped(KeyEvent e) {}
+        // Creating a KeyListener for saving settings functionality
+KeyListener saveOnEnter = new KeyListener() {
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Not handling keyTyped event, leaving it empty
+    }
 
-            @Override
-            public void keyPressed(KeyEvent theKey) {
-                if(theKey.getExtendedKeyCode()==KeyEvent.VK_ENTER)
-                {saveSettings.doClick();}
-            }
+    @Override
+    public void keyPressed(KeyEvent theKey) {
+        // Checking if the pressed key is the 'Enter' key
+        if (theKey.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+            // If 'Enter' is pressed, simulate a click on the saveSettings button
+            saveSettings.doClick();
+        }
+    }
 
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        };
-        usernameTextField.addKeyListener(saveOnEnter);
-        nameTextField.addKeyListener(saveOnEnter);
-        newPasswordTextField.addKeyListener(saveOnEnter);
-        oldPasswordTextField.addKeyListener(saveOnEnter);
-        mainView.pack();
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Not handling keyReleased event, leaving it empty
+    }
+};
+
+// Adding the saveOnEnter KeyListener to specific text fields
+usernameTextField.addKeyListener(saveOnEnter);
+nameTextField.addKeyListener(saveOnEnter);
+newPasswordTextField.addKeyListener(saveOnEnter);
+oldPasswordTextField.addKeyListener(saveOnEnter);
+
+// Packing the mainView (assuming mainView is a Swing container/window)
+mainView.pack();
+
     }
     
+    /**
+     * Opens the shopping screen for a specific customer, displaying available items for purchase.
+     * This method sets up the GUI to show available items for the customer to browse and buy.
+     * It populates the screen with a list of items from sellers and enables the user to interact
+     * with each item to potentially add them to the shopping cart.
+     * @param currentCustomer The customer currently logged into the shopping system.
+     */
     public void OpenShoppingScreen(Customer currentCustomer)
     {
         ResetMainView();
@@ -504,6 +585,13 @@ public class ShoppingSystem {
         mainView.pack();
     }
     
+    /**
+     * Displays a screen for adding an item to the customer's cart.
+     * This method shows a GUI screen where the user can view details of a specific item
+     * and add it to their shopping cart with a specified quantity.
+     * @param currentCustomer The customer currently logged into the shopping system.
+     * @param item            The item the user intends to add to their shopping cart.
+     */
     public void AddItemToCartScreen(Customer currentCustomer, Item item)
     {
         ResetMainView();
@@ -584,6 +672,15 @@ public class ShoppingSystem {
         
     }
     
+    /**
+     * Opens the shopping cart screen for a specific customer.
+     * This method constructs a graphical user interface displaying the items
+     * currently added to the customer's shopping cart. It allows users to view
+     * the cart contents, modify the quantities of items, remove items, and proceed
+     * to complete the purchase transaction if all items are available and valid.
+     * 
+     * @param currentCustomer The customer whose shopping cart is being displayed.
+     */
     public void OpenShoppingCartScreen(Customer currentCustomer)
     {
         ResetMainView();
@@ -750,6 +847,15 @@ public class ShoppingSystem {
         mainView.pack();
     }
     
+    /**
+     * Opens a receipt view displaying the details of a completed transaction.
+     * Constructs a graphical user interface to show the transaction receipt,
+     * listing the purchased items, their prices, and quantities. Also includes
+     * a "Done" button to return to the shopping screen.
+     * @param currentCustomer The customer who completed the transaction.
+     * @param receipt An ArrayList containing String arrays with item details for the receipt.
+     * @param cartTotal The total cost of the items in the cart.
+     */
     public void OpenReceiptView(Customer currentCustomer, ArrayList<String[]> receipt, float cartTotal)
     {
         ResetMainView();
@@ -782,6 +888,13 @@ public class ShoppingSystem {
         mainView.pack();
     }
     
+    /**
+     * Opens the inventory screen for a specific seller.
+     * Constructs a graphical user interface to display the seller's inventory,
+     * allowing the seller to view their listed items, their availability, prices, stock,
+     * and remove items from sale. It also provides an option to add new items.
+     * @param currentSeller The seller whose inventory is being displayed.
+     */
     public void OpenInventoryScreen(Seller currentSeller)
     {
         ResetMainView();
@@ -807,6 +920,7 @@ public class ShoppingSystem {
         // Inventory List
         JPanel inventoryPanel = new JPanel();
         inventoryPanel.setLayout(new BoxLayout(inventoryPanel,BoxLayout.PAGE_AXIS));
+        // Looping through the seller's inventory items
         for(int i=0;i<currentSeller.GetInventorySize();i++)
         {
             Item currentItem = currentSeller.GetItemInInventory(i);
@@ -882,6 +996,14 @@ public class ShoppingSystem {
         mainView.pack();
     }
     
+    /**
+     * Opens the screen for editing an item's details.
+     * If editing an existing item, it retrieves the item's details and sets up the screen.
+     * If adding a new item, initializes an empty item for editing.
+     * @param currentSeller The seller whose item is being edited or for whom a new item is being added.
+     * @param itemIndex The index of the item being edited in the seller's inventory. 
+     *                 Use -1 to initialize a new item for addition.
+     */
     public void OpenItemEditScreen(Seller currentSeller, int itemIndex)
     {
         ResetMainView();
@@ -1060,6 +1182,14 @@ public class ShoppingSystem {
             previewButton.addActionListener((ActionEvent e)->
             {detailsView.ShowItem(item);});
         }
+        
+        /**
+        * Constructs a JButton labeled "Save" or "Add" based on the item index.
+        * Adds an ActionListener to the button to handle saving or adding item details.
+        * Highlights text fields with red if they are empty or contain invalid inputs.
+        * Displays appropriate error messages for invalid inputs or actions.
+        * Updates item details and performs actions based on the conditions.
+        */
         // Save Button
         JButton saveButton = new JButton("Save");
         if(itemIndex==-1)
@@ -1151,14 +1281,17 @@ public class ShoppingSystem {
         mainView.pack();
     }
     
-    public Seller GetSellerFromUsername(String username) throws NoSuchElementException
-    {
+   /**
+    * Retrieves a seller object based on the provided username.
+    * @param username The username of the seller to search for.
+    * @return The Seller object associated with the provided username.
+    * @throws NoSuchElementException If no seller is found with the given username.
+    */
+    public Seller GetSellerFromUsername(String username) throws NoSuchElementException {
         Seller foundSeller = null;
-        for(int i=0; i<sellersList.size(); i++)
-        {
+        for (int i = 0; i < sellersList.size(); i++) {
             Seller currentSeller = sellersList.get(i);
-            if (currentSeller.GetUsername().equals(username))
-            {
+            if (currentSeller.GetUsername().equals(username)) {
                 foundSeller = currentSeller;
                 break;
             }
@@ -1167,15 +1300,18 @@ public class ShoppingSystem {
             throw new NoSuchElementException();
         return foundSeller;
     }
-    
-    public Customer GetCustomerFromUsername(String username) throws NoSuchElementException
-    {
+
+    /**
+     * Retrieves a customer object based on the provided username.
+     * @param username The username of the customer to search for.
+     * @return The Customer object associated with the provided username.
+     * @throws NoSuchElementException If no customer is found with the given username.
+     */
+    public Customer GetCustomerFromUsername(String username) throws NoSuchElementException {
         Customer foundCustomer = null;
-        for(int i=0; i<customersList.size(); i++)
-        {
+        for (int i = 0; i < customersList.size(); i++) {
             Customer currentCustomer = customersList.get(i);
-            if (currentCustomer.GetUsername().equals(username))
-            {
+            if (currentCustomer.GetUsername().equals(username)) {
                 foundCustomer = currentCustomer;
                 break;
             }
@@ -1184,34 +1320,46 @@ public class ShoppingSystem {
             throw new NoSuchElementException();
         return foundCustomer;
     }
-    
-    public boolean UsernameTaken(String testUsername)
-    {
-        try{
+
+    /**
+     * Checks if a username is taken by either a seller or a customer.
+     * @param testUsername The username to be checked for availability.
+     * @return True if the username is taken by either a seller or a customer, otherwise false.
+     */
+    public boolean UsernameTaken(String testUsername) {
+        try {
             GetSellerFromUsername(testUsername);
             return true;
-        }catch(NoSuchElementException e1){
-            try{
+        } catch (NoSuchElementException e1) {
+            try {
                 GetCustomerFromUsername(testUsername);
                 return true;
-            }catch(NoSuchElementException e2){
+            } catch (NoSuchElementException e2) {
                 return false;
             }
         }
     }
-    
+
+    /**
+     * Main entry point of the application. Initiates the starting of the system.
+     * @param Args The command line arguments provided to the program.
+     */
     public static void main(String[] Args)
     {systemSingleton.StartApp();}
     
+    /**
+     * Retrieves the instance of the ShoppingSystem (singleton pattern).
+     * @return The singleton instance of the ShoppingSystem.
+     */  
     public static ShoppingSystem GetInstance()
     {return systemSingleton;}
     
-    private User currentUser;
     private static final ShoppingSystem systemSingleton = new ShoppingSystem();
+    private User currentUser;
     private ArrayList<Seller> sellersList;
     private ArrayList<Customer> customersList;
     private final JFrame mainView = new JFrame();
     private final JPanel container = new JPanel();
-    public final ErrorView errorView = ErrorView.GetInstance();
+    private final ErrorView errorView = ErrorView.GetInstance();
     private final ItemDetailsView detailsView = ItemDetailsView.GetInstance();
 }
