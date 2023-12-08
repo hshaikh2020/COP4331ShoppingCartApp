@@ -87,7 +87,9 @@ Clone the Git repository or download the source code. bash Copy code git clone N
    next=> open target folder to access ShoppingCartApp-1.0-SNAPSHOT.jar 
    next=> now double click on ShoppingCartApp-1.0-SNAPSHOT.jar to open and run the shoppcart app.
    ```
-
+Note: If the program gives an error from double clicking, try running it through command prompt instead.
+1. In command prompt, navigate to the directory containing the ShoppingCartApp-1.0-SNAPSHOT.jar file
+2. Run the command "java -jar ShoppingCartApp-1.0-SNAPSHOT.jar"
     
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
