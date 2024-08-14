@@ -140,7 +140,7 @@ Note: If the program gives an error from double clicking, try running it through
 
 -Divyesh Mangapuram
 -S Hassan Shaikh
--Austin Vesquez
+-Austin Vasquez
 -Jorge Martinez
 
 
